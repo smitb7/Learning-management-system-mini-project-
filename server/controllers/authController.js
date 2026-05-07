@@ -66,9 +66,25 @@ const loginUser = async(req,res)=>{
             })
         }
 
+        //  Token assigning 
+        const token = jwt.sign(
+            {id : user._id, role: user.role},
+            process.env.JWT_SECRET,
+            {expiresIn : "30m"}
+
+        );
+
+        res.json({
+            message : "login successfull",
+            token
+        })
 
     } catch (error) {
-        
+
+        res.status(500).json({
+            error
+        })
+
     }
 
 }
@@ -77,5 +93,6 @@ const loginUser = async(req,res)=>{
 
 
 module.exports = {
-    registerUser
+    registerUser,
+    loginUser
 }
