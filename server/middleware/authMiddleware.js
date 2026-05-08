@@ -4,7 +4,7 @@ const User = require("../models/UserModel")
 
 //  protected routes (must Login)
 
-const protect = async (req, res, next) => {
+const protect= async (req, res, next) => {
     let token;
   
     try {
@@ -29,6 +29,21 @@ const protect = async (req, res, next) => {
       return res.status(401).json({ message: "Token failed" });
     }
   };
+
+
   
-  
-  
+// only for admin 
+
+const adminOnly = (req,res,next)=>{
+
+    if (req.user && req.user.role === "admin"){
+        next();
+    }else{
+        res.status(403).json({
+            message : "Only Admin can access"
+        })
+    }
+
+}
+
+module.exports = {protect, adminOnly}

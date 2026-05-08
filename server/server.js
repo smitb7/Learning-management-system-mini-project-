@@ -17,11 +17,14 @@ app.use(express.json())
 
 //now impoert the route 
 const authRoutes = require("./routes/authRoutes");
+//test for autthmiddleware
+const testRoutes = require("./routes/testRoutes");
 
 
 //use that routes , we are adding api in the path that it'll easy to connect with frontend 
 app.use("/api/auth", authRoutes)
-
+//test for auth middleware (first hit the login and then take the token and create a request for authmiddleware testing and put the token in the request with (eg. Bearer Token))
+app.use("/api/test", testRoutes);
 
 
 
