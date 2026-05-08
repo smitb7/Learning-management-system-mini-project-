@@ -14,6 +14,19 @@ app.use(cors());
 app.use(express.json())
 
 
+
+//now impoert the route 
+const authRoutes = require("./routes/authRoutes");
+
+
+//use that routes , we are adding api in the path that it'll easy to connect with frontend 
+app.use("/api/auth", authRoutes)
+
+
+
+
+
+
 // testing route
 
 app.get("/", (req,res)=>{
