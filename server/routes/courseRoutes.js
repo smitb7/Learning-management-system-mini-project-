@@ -24,4 +24,5 @@ router.put("/:id", protect, adminOnly, updateCourse);
 
 // delete course
 router.delete("/:id", protect, adminOnly, deleteCourse);
+
 module.exports = router;
