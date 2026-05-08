@@ -21,7 +21,8 @@ const authRoutes = require("./routes/authRoutes");
 const testRoutes = require("./routes/testRoutes");
 //courses routs
 const courseRoutes = require("./routes/courseRoutes");
-
+//Enrollment routs
+const enrollmentRoutes = require("./routes/enrollmentRoutes");
 
 
 //use that routes , we are adding api in the path that it'll easy to connect with frontend 
@@ -30,18 +31,21 @@ app.use("/api/auth", authRoutes)
 app.use("/api/test", testRoutes);
 //use courses routes 
 app.use("/api/courses", courseRoutes);
+//use enrollment routes
+app.use("/api/enrollments", enrollmentRoutes);
 
 
 
 
 
-// testing route
 
-app.get("/", (req,res)=>{
+// // testing route
 
-    res.send("server is running successfully")
+// app.get("/", (req,res)=>{
 
-})
+//     res.send("server is running successfully")
+
+// })
 
 // port 
 const PORT = process.env.PORT || 8080;
