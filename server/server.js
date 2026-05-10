@@ -5,7 +5,7 @@ const cors = require("cors")
 const connectmongodb = require("./config/dbconnection")
 
 
-dotenv.config()
+dotenv.config();
 connectmongodb();
 
 
@@ -23,6 +23,9 @@ const testRoutes = require("./routes/testRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 //Enrollment routs
 const enrollmentRoutes = require("./routes/enrollmentRoutes");
+// Payment Routes 
+const paymentRoutes = require("./routes/paymentRoutes");
+
 
 
 //use that routes , we are adding api in the path that it'll easy to connect with frontend 
@@ -33,7 +36,8 @@ app.use("/api/test", testRoutes);
 app.use("/api/courses", courseRoutes);
 //use enrollment routes
 app.use("/api/enrollments", enrollmentRoutes);
-
+// use payment routes to the app
+app.use("/api/payment", paymentRoutes);
 
 
 
