@@ -1,6 +1,6 @@
 const razorpay = require("../config/razorpay");
 const crypto = require("crypto");
-const Course = require("../models/EnrollmentModel");
+const Course = require("../models/CourseModel");
 const Enrollment = require("../models/EnrollmentModel");
 
 // payment order generate
@@ -83,4 +83,3 @@ const verifyPayment = async (req, res) => {
     verifyPayment,
   };
 
-  
