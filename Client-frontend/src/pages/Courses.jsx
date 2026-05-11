@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import API from "../api/axios";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingCourses, setLoadingCourses] = useState(true);
 
   // search + pagination state
   const [search, setSearch] = useState("");
@@ -59,7 +62,7 @@ const Courses = () => {
             courseId,
           });
 
-          alert("Payment successful & enrolled!");
+          toast.success("Payment successful & enrolled!");
         },
       };
 
@@ -67,7 +70,7 @@ const Courses = () => {
       rzp.open();
     } catch (error) {
       console.log(error);
-      alert("Payment failed");
+      toast.error("Payment failed");
     } finally {
       setLoading(false);
     }
