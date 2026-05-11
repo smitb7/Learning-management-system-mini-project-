@@ -1,0 +1,19 @@
+import axios from "axios";
+
+// This is a central place to call backend APIs
+const API = axios.create({
+  baseURL: "http://localhost:8080/api", // your backend URL
+});
+
+// Automatically attach token to every request
+API.interceptors.request.use((req) => {
+  const token = localStorage.getItem("token");
+
+  if (token) {
+    req.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return req;
+});
+
+export default API;
