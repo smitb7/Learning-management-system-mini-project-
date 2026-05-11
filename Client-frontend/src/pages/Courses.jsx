@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [loadingCourses, setLoadingCourses] = useState(true);
 
   // search + pagination state
   const [search, setSearch] = useState("");
