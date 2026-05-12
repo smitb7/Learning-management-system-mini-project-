@@ -2,7 +2,7 @@ import axios from "axios";
 
 // This is a central place to call backend APIs
 const API = axios.create({
-  baseURL: "http://localhost:8080/api", // your backend URL
+  baseURL: "http://localhost:8080/api", //  backend URL
 });
 
 // Automatically attach token to every request

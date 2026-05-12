@@ -16,8 +16,8 @@ const Navbar = () => {
     <div className="bg-white shadow-md px-6 py-3 flex justify-between items-center">
 
       {/* Logo / Title */}
-      <h1 className="text-xl font-bold text-blue-600">
-        LMS
+      <h1 className="text-xl font-bold text-gray-600 ">
+        Learning Management System
       </h1>
 
       {/* Navigation Links */}

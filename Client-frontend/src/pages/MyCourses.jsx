@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../api/axios";
+import { toast } from "react-toastify";
 
 const MyCourses = () => {
   const [courses, setCourses] = useState([]);
@@ -9,11 +10,10 @@ const MyCourses = () => {
     const fetchMyCourses = async () => {
       try {
         const res = await API.get("/enrollments/my");
-
-        // backend returns enrollment with course populated
         setCourses(res.data);
       } catch (error) {
         console.log(error);
+        toast.error("Failed to load courses");
       }
     };
 
@@ -27,12 +27,19 @@ const MyCourses = () => {
         progress,
       });
 
-      alert("Progress updated");
+      // ✅ toast instead of alert
+      toast.success("Progress updated");
 
-      // refresh data
-      window.location.reload();
+      // ✅ update UI without reload
+      setCourses((prev) =>
+        prev.map((item) =>
+          item._id === id ? { ...item, progress } : item
+        )
+      );
+
     } catch (error) {
       console.log(error);
+      toast.error("Failed to update progress");
     }
   };
 
